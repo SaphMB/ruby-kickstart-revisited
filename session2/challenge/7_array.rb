@@ -8,3 +8,12 @@
 # alternate_words("Lorem ipsum dolor sit amet.")  # => ["Lorem", "dolor", "amet"]
 # alternate_words("Can't we all get along?")      # => ["Can't", "all", "along"]
 # alternate_words("Elementary, my dear Watson!")  # => ["Elementary", "dear"]
+
+def alternate_words(sentence)
+    return_array = []
+    '!@$#%^&*()-=_+[]:;,./<>?\\|'.split(//).each do |char|
+        sentence = sentence.gsub(char, ' ')
+    end
+    sentence.split(' ').select.with_index {|word,index| return_array << word if index.even?}
+    return_array 
+end
